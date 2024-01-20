@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1047597209614",
+    "project_id": "assent-social-media-app",
+    "storage_bucket": "assent-social-media-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047597209614:android:97716205b6473a4feb445f",
+        "android_client_info": {
+          "package_name": "com.assentsocialmediapp.firebase.social_media_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHZDJvg3uhpoNFs0vM3mz_BdGc-aTUimQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

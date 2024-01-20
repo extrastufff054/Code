@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDHi2GOvwnX8-Hc2PxMcAY3lDVoXZGMr3s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1047597209614</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.assentsocialmediapp.firebase.socialMediaApplication.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>assent-social-media-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>assent-social-media-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1047597209614:ios:3d40de340d6fa7f4eb445f</string>
+</dict>
+</plist>
