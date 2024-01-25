@@ -42,6 +42,6 @@ class MyListTile extends StatelessWidget {
             ),
           ),
         ),
-      );;
+      );
   }
 }
