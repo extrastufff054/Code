@@ -24,7 +24,7 @@ class MyTextField extends StatelessWidget {
       (
         border: const OutlineInputBorder
         (
-          borderRadius: BorderRadius.all(Radius.circular(22)),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         hintText: hintText,
       ),

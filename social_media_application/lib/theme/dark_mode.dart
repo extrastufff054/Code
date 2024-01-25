@@ -7,7 +7,7 @@ ThemeData darkMode = ThemeData
     background: Colors.grey.shade900,
     primary: Colors.grey.shade800,
     secondary: Colors.grey.shade700,
-    inversePrimary: Colors.grey.shade900,
+    inversePrimary: Colors.grey.shade200,
     tertiary: Colors.grey.shade300,
   ),
 
