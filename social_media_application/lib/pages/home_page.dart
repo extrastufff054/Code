@@ -137,7 +137,7 @@ class HomePage extends StatelessWidget {
                     Timestamp timestamp = post["TimeStamp"];
 
                     //return as a list tile
-                    return MyListTile
+                    return MyListTile 
                     (
                       title: message,
                       subTitle: userEmail

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media_application/components/my_button.dart';
 import 'package:social_media_application/components/my_textfield.dart';
+import 'package:social_media_application/components/square_tile.dart';
 import 'package:social_media_application/helper/helper_function.dart';
 
 class LoginPage extends StatefulWidget {
@@ -143,6 +144,67 @@ class _LoginPageState extends State<LoginPage> {
               text: "Login",
               onTap: login,
             ),
+
+            const SizedBox(height: 50),
+
+            //or login with
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row
+              (
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                [
+                  const Expanded
+                  (
+                    child: Divider
+                    (
+                      thickness: 0.5,
+                      color: Colors.grey,
+                    )
+                  ),
+                  Padding(
+                    padding:  const EdgeInsets.symmetric(horizontal: 10.0),
+                    child:  Text
+                      (
+                        "Or continue with",
+                        style: TextStyle
+                        (
+                          color: Colors.grey[700],
+                        ),
+                      ),
+
+                  ),
+                  Expanded
+                  (
+                    child: Divider
+                    (
+                      thickness: 0.5,
+                      color: Colors.grey.shade400,
+                    )
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 50),
+
+            //Google and Apple sign in buttons
+            const Row
+            (
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:
+              [
+                //google sign in button
+                SquareTile(imagePath: 'lib/images/google.png'),
+
+                SizedBox(width:10.0),
+
+                //apple sign in button
+                SquareTile(imagePath: 'lib/images/apple.png')
+              ],
+            ),
+
 
             const SizedBox(height: 25),
 
