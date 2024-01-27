@@ -63,7 +63,7 @@ class MyDrawer extends StatelessWidget {
 
               const SizedBox(height: 25,),
 
-                //profile title
+              //profile title
               Padding(
                 padding: const EdgeInsets.only(left : 25.0),
                 child: ListTile
@@ -124,6 +124,39 @@ class MyDrawer extends StatelessWidget {
                   },
                 ),
               ),
+
+              const SizedBox(height: 25,),
+              
+              //notifications title
+              Padding(
+                padding: const EdgeInsets.only(left : 25.0),
+                child: ListTile
+                (
+                  leading: Icon
+                  (
+                    Icons.notifications,
+                    color: Colors.grey[300],
+                  ),
+                  title: const Text
+                  (
+                    "N O T I F I C A T I O N S ",
+                    style : TextStyle
+                    (
+                      fontWeight: FontWeight.bold,
+                    )
+                  ),
+                  onTap: ()
+                  {
+                    //pop drawer
+                    Navigator.pop(context);
+
+                    //navigate to profile page
+                    Navigator.pushNamed(context, '/notification_page');
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 25,),
 
             ],
           ),

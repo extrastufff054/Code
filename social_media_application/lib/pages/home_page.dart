@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media_application/components/my_drawer.dart';
 import 'package:social_media_application/components/my_list_tile.dart';
 import 'package:social_media_application/components/my_post_button.dart';
 import 'package:social_media_application/components/my_textfield.dart';
+import 'package:social_media_application/components/wall_post.dart';
 import 'package:social_media_application/database/firestore.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,21 +14,30 @@ class HomePage extends StatelessWidget {
   //firestore access
   final FirestoreDatabase database = FirestoreDatabase();
 
+  //User
+  final currentUser = FirebaseAuth.instance.currentUser!;
   //text controller
-  final TextEditingController newPostcontroller = TextEditingController();
+  final TextEditingController textController = TextEditingController();
 
   //post message
   void postMessage()
   {
     // only post message if there is something in the textfield
-    if (newPostcontroller.text.isNotEmpty)
+    if (textController.text.isNotEmpty)
     {
-      String message = newPostcontroller.text;
-      database.addPost(message);
+      //store in firebase
+      FirebaseFirestore.instance.collection("User Posts").add
+      (
+        {
+          'UserEmail' : currentUser.email,
+          'Message' : textController.text,
+          'TimeStamp' : Timestamp.now(),
+        }
+      );
     }
 
     //clear controller
-    newPostcontroller.clear();
+    textController.clear();
   }
 
   @override
@@ -55,31 +66,56 @@ class HomePage extends StatelessWidget {
       (
         children:
         [
-          // TEXTFIELD BOX FOR USER TO TYPE
-          Padding(
-            padding: const EdgeInsets.all
-            (
-              25.0
-            ),
-            child: Row(
-              children: [
-                //textfield
-                Expanded(
-                  child: MyTextField
-                  (
-                    hintText: "Say something...",
-                    obscureText: false,
-                    controller: newPostcontroller
-                  ),
-                ),
 
-                //post button
-                PostButton
+          //The Wall
+          Expanded
+          (
+            child: StreamBuilder
+            (
+              stream: FirebaseFirestore.instance
+                .collection("User Posts")
+                .orderBy
                 (
-                  onTap : postMessage
+                  "TimeStamp",
+                  descending: false
                 )
-              ],
-            ),
+                .snapshots(),
+
+              builder: (context, snapshot)
+              {
+                if (snapshot.hasData)
+                {
+                  return ListView.builder
+                  (
+                    itemCount: snapshot.data!.docs.length,
+                    itemBuilder: (context, index)
+                    {
+                      //get the message
+                      final post = snapshot.data!.docs[index];
+                      return WallPost
+                      (
+                        message: post['Message'],
+                        user: post['UserEmail'],
+                      );
+                    },
+                  );
+                }
+                else if(snapshot.hasError)
+                {
+                  return Center
+                  (
+                    child: Text
+                    (
+                      'Error:' + snapshot.error.toString(),
+                    ),
+                  );
+                }
+                return const Center
+                (
+                  child: CircularProgressIndicator(),
+                );
+              },
+            )
           ),
 
           //POSTS
@@ -100,25 +136,24 @@ class HomePage extends StatelessWidget {
               //get all posts
               final posts = snapshot.data!.docs;
 
-              //no data
-              if(snapshot.data!.docs.isEmpty)
-              {
-                return const Center
-                (
-                  child: Padding(
-                    padding: EdgeInsets.all(25.0),
-                    child: Text
-                    (
-                      "No posts yet....Post something!",
-                      style: TextStyle
-                      (
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ),
-                );
-              }
+              // //no data
+              // if(snapshot.data!.docs.isEmpty)
+              // {
+              //   return const Center
+              //   (
+              //     child: Padding(
+              //       padding: EdgeInsets.all(25.0),
+              //       child: Text
+              //       (
+              //         "No posts yet....Post something!",
+              //         // style: TextStyle
+              //         // (
+              //         //   fontSize: 20,
+              //         // ),
+              //       ),
+              //     ),
+              //   );
+              // }
 
               //return as a list
               return Expanded
@@ -137,7 +172,7 @@ class HomePage extends StatelessWidget {
                     Timestamp timestamp = post["TimeStamp"];
 
                     //return as a list tile
-                    return MyListTile 
+                    return MyListTile
                     (
                       title: message,
                       subTitle: userEmail
@@ -146,6 +181,34 @@ class HomePage extends StatelessWidget {
                 )
               );
             } ,
+          ),
+
+          // TEXTFIELD BOX FOR USER TO TYPE
+          Padding(
+            padding: const EdgeInsets.only
+            (
+              left: 25.0,
+              right: 25.0,
+            ),
+            child: Row(
+              children: [
+                //textfield
+                Expanded(
+                  child: MyTextField
+                  (
+                    hintText: "Say something...",
+                    obscureText: false,
+                    controller: textController,
+                  ),
+                ),
+
+                //post button
+                PostButton
+                (
+                  onTap : postMessage
+                )
+              ],
+            ),
           ),
 
         ],

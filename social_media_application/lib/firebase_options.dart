@@ -67,6 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1047597209614',
     projectId: 'assent-social-media-app',
     storageBucket: 'assent-social-media-app.appspot.com',
+    androidClientId: '1047597209614-elq3s0ebckal5pfdoht6ekmst9ltvved.apps.googleusercontent.com',
+    iosClientId: '1047597209614-231rqmrjhgacu9btmvcrbvprbg8kgnfu.apps.googleusercontent.com',
     iosBundleId: 'com.assentsocialmediapp.firebase.socialMediaApplication',
   );
 
@@ -76,6 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1047597209614',
     projectId: 'assent-social-media-app',
     storageBucket: 'assent-social-media-app.appspot.com',
+    androidClientId: '1047597209614-elq3s0ebckal5pfdoht6ekmst9ltvved.apps.googleusercontent.com',
+    iosClientId: '1047597209614-ej7n2ct4828amk4p5r9focqb7sigl4tq.apps.googleusercontent.com',
     iosBundleId: 'com.assentsocialmediapp.firebase.socialMediaApplication.RunnerTests',
   );
 }

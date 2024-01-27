@@ -23,7 +23,7 @@ class PostButton extends StatelessWidget {
           child: Icon
           (
             Icons.send,
-            color: Theme.of(context).colorScheme.primary
+            color: Theme.of(context).colorScheme.tertiary
           ),
         ),
       ),

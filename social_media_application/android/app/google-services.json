@@ -12,7 +12,20 @@
           "package_name": "com.assentsocialmediapp.firebase.social_media_application"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1047597209614-elq3s0ebckal5pfdoht6ekmst9ltvved.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.assentsocialmediapp.firebase.social_media_application",
+            "certificate_hash": "d7fa15a1be9b4c1db8e242fe48f5454d24f27e9c"
+          }
+        },
+        {
+          "client_id": "1047597209614-gqid9nfircvq877kh6047afkobva7mi3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDHZDJvg3uhpoNFs0vM3mz_BdGc-aTUimQ"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047597209614-gqid9nfircvq877kh6047afkobva7mi3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1047597209614-231rqmrjhgacu9btmvcrbvprbg8kgnfu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.assentsocialmediapp.firebase.socialMediaApplication"
+              }
+            }
+          ]
         }
       }
     }
