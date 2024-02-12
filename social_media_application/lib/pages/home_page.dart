@@ -189,6 +189,7 @@ class HomePage extends StatelessWidget {
             (
               left: 25.0,
               right: 25.0,
+              bottom: 25.0
             ),
             child: Row(
               children: [
@@ -210,7 +211,17 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          //logged in as 
 
+          Text
+          (
+            "Logged in as: " + currentUser.email!,
+            style: TextStyle
+            (
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          const SizedBox(height: 25),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media_application/components/like_button.dart';
 
 class WallPost extends StatelessWidget {
   final String user;
@@ -18,7 +19,7 @@ class WallPost extends StatelessWidget {
       decoration: BoxDecoration
       (
         color: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(8.0)
+        borderRadius: BorderRadius.circular(12),
       ),
       margin: const EdgeInsets.only
       (
@@ -31,24 +32,43 @@ class WallPost extends StatelessWidget {
       (
         children:
         [
-          Container
-          (
-            decoration: BoxDecoration
-            (
-              shape: BoxShape.circle,
-              color: Theme.of(context).colorScheme.secondary,
-            ),
-            child: Icon
-            (
-              Icons.person,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-          ),
+          // //profile picture
+          // Container
+          // (
+          //   decoration: BoxDecoration
+          //   (
+          //     shape: BoxShape.circle,
+          //     color: Theme.of(context).colorScheme.secondary,
+          //   ),
+          //   child: Icon
+          //   (
+          //     Icons.person,
+          //     color: Theme.of(context).colorScheme.tertiary,
+          //   ),
+          // ),
 
           Column
           (
+            children:
+            [
+              //like button
+              LikeButton
+              (
+                isLiked: false,
+                onTap: (){},
+              ),
+
+              //like count
+            ],
+          ),
+
+          const SizedBox(width: 20),
+
+          //message and user email
+          Column
+          (
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: 
+            children:
             [
               Text
               (
@@ -61,7 +81,13 @@ class WallPost extends StatelessWidget {
               const SizedBox(height: 10),
               Text(message),
             ],
-          )
+          ),
+
+          const SizedBox
+          (
+            width: 25,
+          ),
+
         ],
       ),
     );

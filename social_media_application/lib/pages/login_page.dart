@@ -59,6 +59,19 @@ class _LoginPageState extends State<LoginPage> {
       //show error message
       displayMessageToUser(e.code, context);
     }
+
+    //display a dialog message
+    void displayMessage(String message)
+    {
+      showDialog
+      (
+        context: context,
+        builder: (context) => AlertDialog
+        (
+          title: Text(message),
+        )
+      );
+    }
   }
 
   @override
@@ -66,184 +79,183 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold
     (
       backgroundColor: Theme.of(context).colorScheme.background,
-      body:  
-          SingleChildScrollView(
-            child: Center
+      body: Center
             (
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Column
-                (
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:
-                  [
-                    //logo
-                    Icon
-                    (
-                      Icons.people,
-                      size: 80,
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                    ),
-            
-                    const SizedBox(height: 25),
-            
-                    //app name
-            
-                    Text
-                    (
-                      "A  S  S  E  N  T",
-                      style: TextStyle
-                      (
-                        fontSize: 30,
-                        letterSpacing: 5.0,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.tertiary,
-                      )
-                    ),
-            
-            
-            
-                    const SizedBox(height: 50),
-            
-                    //email textfield
-                    MyTextField
-                    (
-                      hintText: "Email",
-                      obscureText: false,
-                      controller: emailController,
-                    ),
-            
-                  const SizedBox(height: 10),
-            
-                    //password textfield
-                    MyTextField
-                    (
-                      hintText: "Password",
-                      obscureText: true,
-                      controller: passwordController,
-                    ),
-            
-                  const SizedBox(height: 10),
-            
-                    //forgot password
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text
-                        (
-                          "Forgot Password?",
-                          style: TextStyle
-                          (
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        ),
-                      ],
-                    ),
-            
-                  const SizedBox(height: 25),
-                    //sign in button
-                  MyButton
-                  (
-                    text: "Login",
-                    onTap: login,
-                  ),
-            
-                  const SizedBox(height: 50),
-            
-                  //or login with
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row
-                    (
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:
-                      [
-                        const Expanded
-                        (
-                          child: Divider
-                          (
-                            thickness: 0.5,
-                            color: Colors.grey,
-                          )
-                        ),
-                        Padding(
-                          padding:  const EdgeInsets.symmetric(horizontal: 10.0),
-                          child:  Text
-                            (
-                              "Or continue with",
-                              style: TextStyle
-                              (
-                                color: Colors.grey[700],
-                              ),
-                            ),
-            
-                        ),
-                        Expanded
-                        (
-                          child: Divider
-                          (
-                            thickness: 0.5,
-                            color: Colors.grey.shade400,
-                          )
-                        ),
-                      ],
-                    ),
-                  ),
-            
-                  const SizedBox(height: 50),
-            
-                  //Google and Apple sign in buttons
-                  Row
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Column
                   (
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:
                     [
-                      //google sign in button
-                      SquareTile
+                      //logo
+                      Icon
                       (
-                        onTap: () => AuthPage().signInWithGoogle(),
-                        imagePath: 'lib/images/google.png'
+                        Icons.people,
+                        size: 80,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                       ),
-            
-                      const SizedBox(width:50.0),
-            
-                      //apple sign in button
-                      SquareTile
+
+                      const SizedBox(height: 25),
+ 
+                      //app name
+
+                      Text
                       (
-                        onTap: () {},
-                        imagePath: 'lib/images/apple.png'
-                      )
+                        "A  S  S  E  N  T",
+                        style: TextStyle
+                        (
+                          fontSize: 30,
+                          letterSpacing: 5.0,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.tertiary,
+                        )
+                      ),
+
+
+
+                      const SizedBox(height: 50),
+
+                      //email textfield
+                      MyTextField
+                      (
+                        hintText: "Email",
+                        obscureText: false,
+                        controller: emailController,
+                      ),
+
+                    const SizedBox(height: 10),
+
+                      //password textfield
+                      MyTextField
+                      (
+                        hintText: "Password",
+                        obscureText: true,
+                        controller: passwordController,
+                      ),
+
+                    const SizedBox(height: 10),
+
+                      //forgot password
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text
+                          (
+                            "Forgot Password?",
+                            style: TextStyle
+                            (
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                    const SizedBox(height: 25),
+                      //sign in button
+                    MyButton
+                    (
+                      text: "Login",
+                      onTap: login,
+                    ),
+
+                    const SizedBox(height: 50),
+
+                    //or login with
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Row
+                      (
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children:
+                        [
+                          const Expanded
+                          (
+                            child: Divider
+                            (
+                              thickness: 0.5,
+                              color: Colors.grey,
+                            )
+                          ),
+                          Padding(
+                            padding:  const EdgeInsets.symmetric(horizontal: 10.0),
+                            child:  Text
+                              (
+                                "Or continue with",
+                                style: TextStyle
+                                (
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+
+                          ),
+                          Expanded
+                          (
+                            child: Divider
+                            (
+                              thickness: 0.5,
+                              color: Colors.grey.shade400,
+                            )
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 50),
+
+                    //Google and Apple sign in buttons
+                    Row
+                    (
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:
+                      [
+                        //google sign in button
+                        SquareTile
+                        (
+                          onTap: () => AuthPage().signInWithGoogle(),
+                          imagePath: 'lib/images/google.png'
+                        ),
+
+                        const SizedBox(width:50.0),
+
+                        //apple sign in button
+                        SquareTile
+                        (
+                          onTap: () {},
+                          imagePath: 'lib/images/apple.png'
+                        )
+                      ],
+                    ),
+
+
+                    const SizedBox(height: 25),
+
+                    //don't have an account? Register here
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                       children: [
+                        const Text("Don't have an account? ",),
+
+                        GestureDetector(
+                          onTap: widget.onTap,
+                          child: const Text
+                          (
+                            " Register Here",
+                            style: TextStyle
+                            (
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue
+                            )
+                          ),
+                        ),
+                       ],
+                     ),
                     ],
                   ),
-            
-            
-                  const SizedBox(height: 25),
-            
-                  //don't have an account? Register here
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                      const Text("Don't have an account? ",),
-            
-                      GestureDetector(
-                        onTap: widget.onTap,
-                        child: const Text
-                        (
-                          " Register Here",
-                          style: TextStyle
-                          (
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue
-                          )
-                        ),
-                      ),
-                     ],
-                   ),
-                  ],
                 ),
               ),
             ),
-          ),
-    );
+          );
   }
 }

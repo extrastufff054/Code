@@ -47,30 +47,31 @@ class _RegisterPageState extends State<RegisterPage> {
 
       //show error message
       displayMessageToUser("Passwords do not match", context);
+      return;
     }
 
   //if passwords don't match
     else
     {
-          //try creating the user
+      //try creating the user
       try
-    {
-      UserCredential? usercredential = await FirebaseAuth.instance.createUserWithEmailAndPassword
-      (
-        email: emailController.text,
-        password: passwordController.text,
-      );
+      {
+        UserCredential? usercredential = await FirebaseAuth.instance.createUserWithEmailAndPassword
+        (
+          email: emailController.text,
+          password: passwordController.text,
+        );
 
-      //create a user document and add to firestore
-      createUserDocument
-      (
-        usercredential,
-      );
+        //create a user document and add to firestore
+        createUserDocument
+        (
+          usercredential,
+        );
 
-      //pop loading circle
-      if(context.mounted) Navigator.pop(context);
-    }
-    on FirebaseAuthException catch(e)
+        //pop loading circle
+        if(context.mounted) Navigator.pop(context);
+      }
+      on FirebaseAuthException catch(e)
       {
         //pop loading circle
         Navigator.pop(context);
@@ -79,6 +80,18 @@ class _RegisterPageState extends State<RegisterPage> {
         displayMessageToUser(e.code, context);
       }
     }
+  }
+
+  void displayMessage(String message)
+  {
+    showDialog
+    (
+      context: context,
+      builder: (context) => AlertDialog
+      (
+        title: Text(message),
+      )
+    );
   }
 
   //create a user document and collect them in firestore
